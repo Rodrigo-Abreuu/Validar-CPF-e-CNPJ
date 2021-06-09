@@ -72,11 +72,11 @@ public class ValidarCpfECnpj {
 				peso = 9;
 		}
 		
-		resposta = 11 - (somatorio % 11);
+		resposta = somatorio % 11;
 		if(resposta == 0 || resposta == 1)
 			digito13 = '0';
 		else
-			digito13 = Character.forDigit(resposta, 10);
+			digito13 = Character.forDigit((11 - resposta), 10);
 		
 		peso = 6; somatorio = 0; // Encontrar o digito 14
 		for(indice = 0; indice < 13; indice++){
@@ -87,11 +87,11 @@ public class ValidarCpfECnpj {
 				peso = 9;
 		}
 		
-		resposta = 11 - (somatorio % 11);
+		resposta = somatorio % 11;
 		if(resposta == 0 || resposta == 1)
 			digito14 = '0';
 		else
-			digito14 = Character.forDigit(resposta, 10);
+			digito14 = Character.forDigit((11 - resposta), 10);
 		
 		if(digito13 == cnpj.charAt(12) && digito14 == cnpj.charAt(13))
 			return true; // Se o CNPJ for válido retorna 'true'
